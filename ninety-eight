@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+if [[ !( -e ./ninety-eight.csv ) ]];then
+echo "date-time, body-temp" >ninety-eight.csv
+fi
+
+while true;do
+echo "enter a body temperature: <Enter to exit>"
+read TEMP
+
+if [[ -z $TEMP  ]];then
+exit 0
+elif [[ $TEMP == 'g' ]];then
+gnuplot -p ninety-eight.gnuplot
+elif [[ true ]];then
+t=$(date)
+echo "$(date +%Y-%m-%dT%H:%M:%S), $TEMP"
+echo "$(date +%Y-%m-%dT%H:%M:%S),$TEMP" >>ninety-eight.csv
+echo
+
+fi
+done
